@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_action :require_login, only: [:destroy]
 
   def index
     @tags = Tag.all
@@ -15,11 +16,4 @@ class TagsController < ApplicationController
     redirect_to action: "index"
   end
 
-  # def destroy
-  #   @article = Article.find(params[:id])
-  #   @article.destroy
-  #   flash.notice = "Article '#{@article.title}' deleted!"
-  #   redirect_to action: "index"
-  # end
-  
 end
